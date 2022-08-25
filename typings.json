@@ -1,0 +1,6 @@
+{
+  "globalDependencies": {
+    "gsap": "registry:dt/gsap#1.19.0+20170130020606",
+    "three": "registry:dt/three#0.84.0+20170323144537"
+  }
+}
