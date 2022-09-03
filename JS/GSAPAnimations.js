@@ -5,14 +5,8 @@ gsap.registerPlugin(CSSPlugin);
 //Imort HTMLComponents? To get access to everything, make exiting/entering animations for all elements etc.
 export class GSAPAnimations {
 
-    timeline;
-
     constructor() {
-        this.timeline = gsap.timeline().pause();
-    }
-
-    get timeline() {
-        return this.timeline;
+        
     }
 
     addToTimeline(animation, delay) {
@@ -39,10 +33,10 @@ export class GSAPAnimations {
         return animation;
     }
 
-    ExpandIn(component) {
+    ExpandIn(component, duration) {
         const animation = gsap.fromTo(component.element, { x: "100vw" }, {
             x: 0,
-            duration: 0.8,
+            duration: duration,
             ease: "Power1.easeOut"
         });
         return animation;
@@ -75,11 +69,11 @@ export class GSAPAnimations {
         gsap.set(component.element, { display: string });
     }
 
-    FadeOut(component) {
+    FadeOut(component, duration) {
 
         const animation = gsap.to(component.element, {
             opacity: 0,
-            duration: 1,
+            duration: duration,
             ease: 'none',
             onComplete: this.SetDisplay,
             onCompleteParams: [component, "none"],
@@ -106,17 +100,21 @@ export class GSAPAnimations {
         });
         return animation;
     }
-    FadeIn(component, displayType, duration) {
+    FadeIn(component, duration) {
 
         const animation = gsap.to(component.element, {
             opacity: 1,
             duration: duration,
             immediateRender: false,
             onStart: this.SetDisplay,
-            onStartParams: [component, displayType],
+            onStartParams: [component, component.displayType],
         });
         return animation;
+    }
+    Test(){
+        console.log("Test!");
     }
 
 }
 
+export let animations = new GSAPAnimations();

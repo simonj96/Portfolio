@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { mouse } from './Events.js';
 
 export class CameraHandler {
 
@@ -10,10 +11,10 @@ export class CameraHandler {
     radius = 10;
 
 
-    constructor(camera, mouse) {
+    constructor() {
 
         this.mouse = mouse;
-        this.camera = camera;
+        this.camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 1000);
     }
 
     get camera() {
@@ -46,3 +47,6 @@ export class CameraHandler {
         this.camera.position.lerp(this.vector3, 0.05 * 1 + this.delta);
     }
 }
+
+export let cameraHandler = new CameraHandler();
+export let camera = cameraHandler.camera;

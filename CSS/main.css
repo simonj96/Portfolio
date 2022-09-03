@@ -164,7 +164,7 @@ span img {
     margin: 8px;
     border: 8px solid rgb(2, 2, 2);
     border-radius: 50%;
-    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    animation: spin 1s infinite linear;
     border-color: rgb(226, 226, 226) transparent transparent transparent;
 }
 
@@ -180,16 +180,14 @@ span img {
     animation-delay: -0.15s;
 }
 
-@keyframes lds-ring {
+@keyframes spin {
     0% {
-        transform: rotate(0deg);
+      transform: rotate(0deg);
     }
-
     100% {
-        transform: rotate(360deg);
+      transform: rotate(359deg);
     }
-}
-
+  }
 .switch {
 
     position: relative;
@@ -594,26 +592,34 @@ nav {
 .container {
 
     min-height: 100vh;
+    
     width: 100%;
     z-index: 20;
     display: none;
     position: relative;
+    opacity: 0;
     top: 0;
     bottom: 0;
+    flex-direction: row;
     overflow-y: scroll;
     overflow-x: hidden;
     justify-content: center;
     align-items: center;
-    color: #fff;
-    animation: expand .8s ease forwards;
+
+    /*animation: expand .8s ease forwards;*/
     background-color: var(--secondary-color);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    transition: all .8s ease;
+    /*transition: all .8s ease;*/
 }
-
+.empty {
+    width: 27%;
+    height: 100vh;
+    opacity: 0;
+    background-color: #2196F3;
+}
 .container_content {
     margin-top: 140px;
-    width: 50%;
+    width: 100%;
     height: 100%;
 }
 

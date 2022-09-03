@@ -1,8 +1,7 @@
 import { HTMLComponent } from "./HTMLComponent.js";
-import { ProjectInformation } from "./ProjectInformation.js";
-import { GSAPAnimations } from "./GSAPAnimations.js";
+//import { ProjectInformation } from "./ProjectInformation.js";
 
-export class HTMLHandler {
+class HTMLHandler {
 
     gsapAnimations;
 
@@ -24,12 +23,22 @@ export class HTMLHandler {
     projectsContent;
     projectsList;
 
+
+    _test;
+
+    get test() {
+        return this._test;
+    }
+    set test(value) {
+        this._test = value;
+    }
+
     constructor() {
         this.init();
     }
 
     init() {
-        this.ga = new GSAPAnimations();
+        //this.ga = new GSAPAnimations();
 
         //Hook up important html dom elements to custom HTMLComponents, add them to allComponents.
         this.main = new HTMLComponent(document.getElementById("a"), "flex");
@@ -51,35 +60,11 @@ export class HTMLHandler {
         this.projectsList = new HTMLComponent(document.getElementsByClassName("projectsList")[0], "list");
         this.projects = new HTMLComponent(document.getElementsByClassName("Projects")[0], "block");
         this.projectReturnBuuttonContainer = new HTMLComponent(document.getElementsByClassName("btns")[0], "block");
-        this.projectReturnButton = new HTMLComponent(document.getElementsByClassName("btns_return")[0], "block");
-        this.AddReturnButtonListener(this.projectsMain, this.projectsContent.element);
-        this.OnLoaded();
-        this.EnableUI()
+        this.projectReturnButton = new HTMLComponent(document.getElementsByClassName("btns_return")[0], "block");       
 
     }
-    AddReturnButtonListener(main, container) {
-        this.projectReturnButton.element.addEventListener("click", function (e) {
-            const anim = new GSAPAnimations();
-            anim.addToTimeline(anim.AnimateOutProject(container, 2), "0");
 
-            anim.timeline.play();
-        }, false);
-    }
-    //When everything has been loaded, use this.
-    OnLoaded() {
-        //Reminder: fromto can be used if immediateRender is set false;
 
-        //Create exit animation timeline
-        //Save it, play it.
-
-        this.ga.addToTimeline(this.ga.FadeOut(this.loadingRing), "1");
-        this.ga.addToTimeline(this.ga.FadeIn(this.scroller, this.scroller.displayType), "2");
-        //Add functions to timeline, use to enable buttons.
-        //this.ga.addToTimeline(function () { console.log('Woohoo!') }, "3");
-
-        this.ga.timeline.play();
-
-    }
 
     EnableUI() {
         this.ga2 = new GSAPAnimations();
@@ -113,6 +98,8 @@ export class HTMLHandler {
         this.ga3.addToTimeline(this.ga3.FadeIn(this.overlay, this.overlay.displayType, 0.5), ">");
         this.ga3.addToTimeline(this.ga3.FadeIn(this.projectsMain, this.projectsMain.displayType, 2), ">");
 
+        //Animate in project nav.
+
         this.ga3.timeline.play();
     }
 
@@ -129,6 +116,7 @@ export class HTMLHandler {
     setComponentDisplaType(name, displayType) {
 
     }
-
-
 }
+
+export let html = new HTMLHandler();
+export let projectContainer = html.projectsContent;

@@ -1,23 +1,26 @@
-//For hooking up html stuff
+import { projectContainer } from "./HTMLHandler.js";
 
 //Import CustomAnimations?
-export class ProjectInformation {
+class ProjectInformation {
 
     elements = [];
-
-    constructor(component, project) {
-
-        if (project == "Project 1") {
-            this.Title("Test title.");
-            this.Image("../Projects/Images/test.jpg");
-            this.Text("This is a testing text.");
-            //this.ReturnButton();
-        }
+    project1 = [];
+    project2;
 
 
-        for (let i = 0; i < this.elements.length; i++) {
+    constructor() {
+
+        
+        project1.push(this.Title("Test title."));
+        project1.push(this.Image("../Projects/Images/test.jpg"));
+        project1.push(this.Text("This is a testing text."));
+        //this.ReturnButton();
+        
+
+
+       /* for (let i = 0; i < this.elements.length; i++) {
             component.element.appendChild(this.elements[i]);
-        }
+        }*/
 
 
 
@@ -27,20 +30,20 @@ export class ProjectInformation {
         const text = document.createElement("h1");
         text.classList.add("readingTitle");
         text.innerHTML = string;
-        this.elements.push(text);
+        return text;
     }
     Text(string) {
         const text = document.createElement("p");
         text.classList.add("mainText");
         text.innerHTML = string;
-        this.elements.push(text);
+        return text;
     }
 
     Image(src) {
         const img = document.createElement("IMG");
         img.classList.add("container_img");
         img.src = src;
-        this.elements.push(img);
+        return img;
     }
 
     ReturnButton() {
@@ -51,6 +54,9 @@ export class ProjectInformation {
         btn.className = "btns_return";
         btn.innerHTML = "RETURN";
         container.appendChild(btn);
-        this.elements.push(container);
+        return container;
     }
 }
+
+export let info = new ProjectInformation();
+export let project1 = info.project1;
