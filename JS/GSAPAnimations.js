@@ -1,35 +1,46 @@
 import { gsap } from "https://cdn.skypack.dev/gsap";
 import { CSSPlugin } from "https://cdn.skypack.dev/gsap/CSSPlugin.js"
+import { HTMLComponent } from "./HTMLComponent.js";
+
 gsap.registerPlugin(CSSPlugin);
-//A place for holding gsap animations,
-//Imort HTMLComponents? To get access to everything, make exiting/entering animations for all elements etc.
+
+//Custom GSAP animations.
 export class GSAPAnimations {
 
-    constructor() {
-        
-    }
+    constructor() { }
 
-    addToTimeline(animation, delay) {
-        if (delay == null) {
-            console.log("nulled delay");
-            delay = ">";
-        }
-        this.timeline.add(animation, delay);
-    }
-
-    SlideOutLeft(component) {
+    SlideOutLeft(component, duration) {
         const animation = gsap.fromTo(component, { x: 0 }, {
-            x: -300,
 
+            x: "-100vw",
             immediateRender: false,
-            duration: 1,
+            duration: duration,
+
             stagger: {
                 each: 0.1,
                 from: "edges",
                 grid: "auto",
                 ease: "Power1.easeOut"
             },
+            //onComplete: function () { this.time(0).kill(); }
         });
+        return animation;
+    }
+
+    SlideIn(component, duration) {
+
+        const use = component instanceof HTMLComponent ? component.element : component;
+
+        const animation = gsap.fromTo(use, {
+            x: () => - window.innerWidth
+        }, {
+            x: 0,
+            immediateRender: true,
+
+            duration: duration,
+            ease: "Power1.easeOut",
+        });
+
         return animation;
     }
 
@@ -37,48 +48,31 @@ export class GSAPAnimations {
         const animation = gsap.fromTo(component.element, { x: "100vw" }, {
             x: 0,
             duration: duration,
-            ease: "Power1.easeOut"
-        });
-        return animation;
-    }
+            ease: "Power1.easeOut",
 
-    SlideOutRight(components) {
-        //Maybe don't need
-    }
-
-    SlideUp(component) {
-        const animation = gsap.to(component.element, {
-            y: -300,
-            duration: 1,
         });
-        return animation;
-    }
 
-    SlideDown(component) {
-        const animation = gsap.fromTo(component.element, { y: 0 }, {
-            y: 100,
-            duration: 1,
-            immediateRender: false,
-            onComplete: this.SetDisplay,
-            onCompleteParams: [component, "none"],
-        });
         return animation;
     }
 
     SetDisplay(component, string) {
-        gsap.set(component.element, { display: string });
+        const use = component instanceof HTMLComponent ? component.element : component;
+        gsap.set(use, { display: string === undefined ? "block" : string });
     }
 
-    FadeOut(component, duration) {
+    SetWidth(component, width) {
+        const use = component instanceof HTMLComponent ? component.element : component;
+        gsap.set(use, { width: width, minWidth: width });
+    }
 
-        const animation = gsap.to(component.element, {
-            opacity: 0,
-            duration: duration,
-            ease: 'none',
-            onComplete: this.SetDisplay,
-            onCompleteParams: [component, "none"],
-        });
-        return animation;
+    SetPosition(component, position) {
+        const use = component instanceof HTMLComponent ? component.element : component;
+        gsap.set(use, { position: position, immediateRender: false, });
+    }
+
+    Blur(component, blur) {
+        const use = component instanceof HTMLComponent ? component.element : component;
+        gsap.set(use, { filter: blur, duration: 1 });
     }
 
     AnimateOutProject(container, duration) {
@@ -100,9 +94,12 @@ export class GSAPAnimations {
         });
         return animation;
     }
+
     FadeIn(component, duration) {
 
-        const animation = gsap.to(component.element, {
+        const use = component instanceof HTMLComponent ? component.element : component;
+
+        const animation = gsap.to(use, {
             opacity: 1,
             duration: duration,
             immediateRender: false,
@@ -111,8 +108,32 @@ export class GSAPAnimations {
         });
         return animation;
     }
-    Test(){
-        console.log("Test!");
+
+    FadeOut(component, duration) {
+
+        const use = component instanceof HTMLComponent ? component.element : component;
+
+        const animation = gsap.to(use, {
+            opacity: 0,
+            duration: duration,
+            immediateRender: false,
+            ease: "Power1.easeOut",
+            onComplete: this.SetDisplay,
+            onCompleteParams: [component, "none"],
+        });
+        return animation;
+    }
+
+    onReverse(func, onlyAfterComplete) {
+        let time = 0,
+            reversed;
+        return function () {
+            let t = this.time(),
+                r = t < time;
+            r && !reversed && (!onlyAfterComplete || time === this.duration()) && func.call(this);
+            time = t;
+            reversed = r;
+        };
     }
 
 }

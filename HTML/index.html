@@ -8,33 +8,34 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&family=Montserrat:wght@400;700&display=swap"
+    rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/CSS/main.css">
+
 </head>
 
-<body>
+<body class="stop-scrolling">
+
   <canvas id="three" style="width: 100%; height: 100%"></canvas>
 
   <div class="Menu">
     <nav>
       <a href="#intro">About</a>
       <a href="#proj">Projects</a>
-      <a href="#front" class="fa fa-circle" style="font-size: 15px; margin-left: 8px"></a>
+      <a href="#front" class="fa fa-circle"></a>
+
     </nav>
   </div>
+
   <div class="scroll-downs" id="scroller">
     <div class="mousey">
       <div class="scroller"></div>
     </div>
   </div>
-  <span id="potatoSwitch">
-    <label class="switch">
-      <input type="checkbox" id="pot">
-      <span class="slider round"></span>
-    </label>
-  </span>
+
   <div class="lds-ring">
     <div></div>
     <div></div>
@@ -42,44 +43,180 @@
     <div></div>
   </div>
 
-  <div class="projectNavigator">
-    <a href="#" class="previous">&laquo; Previous Project</a>
-    <a href="#" class="next">Next Project&raquo;</a>
+  <div id="bar">
+    <div id="interactable">
+      <i class="fa fa-bars"></i>
+    </div>
   </div>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn">&times;</a>
+    <div class="alignRight">
+      <div class="list">
+        <a href="#" id="m">Master thesis</a>
+        <a href="#" id="t">Three portfolio</a>
+        <a href="#" id="w">Workshift</a>
+        <a href="#" id="p">Prototype "Party-Pinglor"</a>
+      </div>
+    </div>
+  </div>
+
+
   <div class="Footer">
     <ul>
       <li>
-        <a href="#" class="fa fa-linkedin"></a>
+        <a target="_blank" rel="noopener noreferrer" href="#" class="fa fa-linkedin fa-fw"></a>
       </li>
-    </ul>
-    <ul>
       <li>
-        <a href="#" class="fa fa-twitter"></a>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/simonj96/" class="fa fa-github fa-fw"></a>
       </li>
-    </ul>
-    <ul>
       <li>
-        <a href="#" class="fa fa-envelope"></a>
+        <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/simonjohaansson"
+          class="fa fa-twitter fa-fw"></a>
+      </li>
+      <li>
+        <a target="_blank" rel="noopener noreferrer" href="mailto:simonj96.work@gmail.com"
+          class="fa fa-envelope fa-fw"></a>
+      </li>
+      <li>
+        <div id="disable3d">
+          <button id="disableButton"> 3D </button>
+        </div>
       </li>
     </ul>
-
   </div>
+
   <div class='container'>
-
     <div class="container_content">
+      <div id="left"></div>
       <div class="container_content_inner">
+        <div id="master" class="content">
+          <h1 class="readingTitle">
+            Master thesis
+          </h1>
+          <div class="center">
+            <img class="container_img" src="../Projects/Images/test.jpg">
+          </div>
+          <p class="summary">
+            House of How is an authorized and leading third-party studio that develops microtransactions for the
+            Minecraft Marketplace full time. They create everything from Skin Packs and Character Packs to Minecraft
+            Worlds (Maps) to then sell on the marketplace. They are stationed in Seattle, USA but are also partly
+            stationed in Boden, Sweden where they teach game design/development.
 
-        <div class="btns">
-          <button class='btns_return' id="return"> RETURN </button>
+
+          </p>
+          <h2 class="title">
+            Highlights of the project:
+          </h2>
+          <p class="mainText">
+            I was asked to research and develop a tool that would help streamline the process for creating maps, as they
+            had identified that it is unnecessarily time consuming due to logistical issues covered in the thesis.
+
+            The project started with research about Minecraft, the workflow they have for creating maps and
+            identifying/reaffirming potential pain points that may exist. It then continued with iterations of
+            prototyping and
+
+          </p>
+        </div>
+        <div id="portfolioProject" class="content">
+          <h1 class="readingTitle">
+            Portfolio project
+          </h1>
+          <div class="center">
+            <img class="container_img" src="../Projects/Images/test.jpg">
+          </div>
+          <p class="summary">
+            This portfolio is developed using HTML, CSS and Javascript. The 3D environment is made using Three, a 3D
+            Javascript Library which uses WebGL to create animated 3D graphics.
+
+            The aim of the portfolio is to give an example of my knowledge in interaction and design while also having
+            somewhere to present my other previous work.
+
+          </p>
+          <h2 class="title">
+            Highlights of the project:
+          </h2>
+          <p class="mainText">
+            The goal was to create a “one-page” portfolio where I could present myself and put up my previous projects
+            for display. Having previously done a few websites in HTML already I decided to make it more interesting by
+            integrating Three.js into the project. I did this to challenge myself and to push the limits of my knowledge
+            about user interaction and design.
+            :
+            The 3D environment is in the background while the HTML rests on top. As the user enters the website it is
+            presented by the front page which greets them and has a brief introduction about me. The flow is deliberate
+            and starts with introductions before the user can freely continue downward for more information, as the user
+            scrolls down the site the 3D environment pans out revealing even more of the scene. At the end you can
+            clearly see the office in the scene as you browse the main content of the portfolio and how the items in the
+            list interact with things on the scene.
+
+            Early in development I switched to my laptop which has a very bad GPU and quickly realized how taxing the 3D
+            environment was on low end computers. This caused me to investigate what I could do to optimize the website
+            so that lower end computers could stand a chance of rendering the site.
+
+            The answer was dynamic lights and shadows. Having to constantly raytrace and calculate these was very
+            demanding so by simply disabling shadows I gained a huge performance boost, but now the environment looks
+            worse. I was originally going to implement it so that when a user drops below a certain performance
+            threshold the shadows would disable themselves, but instead I found a compromise. I was going to use
+            “Shadow-baking”. Shadow baking is when you “snapshot” shadows onto the textures, practically allowing you to
+            run without having to constantly calculate the shadow rendering. This solution worked perfectly for this
+            project because I mostly have static meshes. Implementing this allowed for my bad laptop to run the site
+            flawlessly without compromising the look of the environment.’
+
+            If the 3D environment still made a user lag, or if anyone finds it distracting/confusing i implemented a
+            “Simple View” -mode that turns the site into a more basic version.
+
+            In conclusion, Three seems like a really good medium to implement into websites to include 3D functionality.
+            You only need to be wary of the taxing performance that could come with it if you don’t plan for it
+            properly.
+
+          </p>
+        </div>
+        <div id="party" class="content">
+          <h1 class="readingTitle">
+            Prototype: "Party-Pinglor"
+          </h1>
+          <div class="center">
+            <img class="container_img" src="../Projects/Images/test.jpg">
+          </div>
+          <p class="summary">
+
+          </p>
+          <h2 class="title">
+            Highlights of the project:
+          </h2>
+          <p class="mainText">
+
+          </p>
+        </div>
+        <div id="workshift" class="content">
+          <h1 class="readingTitle">
+            Prototype: "Party-Pinglor"
+          </h1>
+          <div class="center">
+            <img class="container_img" src="../Projects/Images/test.jpg">
+          </div>
+          <p class="summary">
+
+          </p>
+          <h2 class="title">
+            Highlights of the project:
+          </h2>
+          <p class="mainText">
+
+          </p>
         </div>
       </div>
+      <div id="right"></div>
     </div>
-    
   </div>
 
   <div class="overlay"></div>
+  <div class="btns">
+    <button class="button-30" role="button" id="return">Return</button>
 
   </div>
+  </div>
+
   <div id="a">
 
     <div class="Front fillPage" id="front">
@@ -89,23 +226,34 @@
     <div class="Projects fillPage" id="proj">
       <div class="projectsContainer">
         <div class="projectsHeader inline slideLeft">
-          <div style="min-width: 48px;">
-            <div class="box blue scrollTriggerSlideIn" style="max-height: 14px; margin-right: 12px"></div>
-          </div>
+
           <h1>Projects</h1>
         </div>
 
         <ul class="projectsList">
           <li class="projectLi slideLeft">
             <a class="project inline">
-              <i class="fa fa-linkedin"></i>
-              <h2 class="hover-underline-animation projectTitle" id="Project1">Project 1</h2>
+              <i class="fa fa-paperclip"></i>
+              <h2 class="hover-underline-animation projectTitle" id="Project1">Master thesis</h2>
+
             </a>
           </li>
           <li class="projectLi slideLeft">
             <a class="project inline">
-              <i class="fa fa-linkedin"></i>
-              <h2 class="hover-underline-animation projectTitle" id="Project2">Project 2</h2>
+              <i class="fa fa-briefcase"></i>
+              <h2 class="hover-underline-animation projectTitle" id="Project2">ThreeJS portfolio</h2>
+            </a>
+          </li>
+          <li class="projectLi slideLeft">
+            <a class="project inline">
+              <i class="fa fa-glass"></i>
+              <h2 class="hover-underline-animation projectTitle" id="Project3">Prototype: "Party-Pinglor"</h2>
+            </a>
+          </li>
+          <li class="projectLi slideLeft">
+            <a class="project inline">
+              <i class="fa fa-star"></i>
+              <h2 class="hover-underline-animation projectTitle" id="Project4">Workshift</h2>
             </a>
           </li>
         </ul>
@@ -121,13 +269,26 @@
         </h1>
       </div>
 
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem porro dolor quae labore
-        reprehenderit sapiente debitis, veniam iure repellat similique?
+      <p class="intro">
+        I'm a civil engineer in <a class="introlink" target="_blank" rel="noopener noreferrer"
+          href="https://www.umu.se/utbildning/program/civilingenjorsprogrammet-i-interaktion-och-design/">Interaction
+          Technology and Design</a>, located in Umeå,
+        Sweden.
+        Interaction Design refers to the relation between people and IT. It's the ability to design both the cognitive
+        and physical interface and to integrate them successfully.
         <br>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem porro dolor quae labore
-        reprehenderit sapiente debitis, veniam iure repellat similique? Exercitationem porro dolor quae labore
-        reprehenderit sapiente debitis, veniam iure repellat.
+        <br>
+        The programme educates people to become engineers
+        equipped with both necessary back-end and front-end knowledge. Experience in both fields allows for a
+        better understanding of what's possible when trying to bridge the two worlds.
+        <br>
+        <br>
+        From my studies I've taken the first steps out into the world of code, learning C, Java, HTML (CSS), Javascript
+        and <a class="introlink" href="#">more.</a> I've also had a lot of experience with design and UX.
+        <br>
+        <br>
+        I want to get involved in software development, to learn and to grow as a developer. Thank you.
+
 
       </p>
 

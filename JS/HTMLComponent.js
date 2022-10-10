@@ -1,12 +1,13 @@
-//For hooking up html stuff
-
-//Import CustomAnimations?
+//For saving DOM ref and specific attributes to use in animations
 export class HTMLComponent {
 
     element;
     name;
+
+    //Current display type
     display;
-    //For reverting.
+
+    //Visible display type
     displayType;
 
     constructor(element, displayType) {
@@ -23,9 +24,11 @@ export class HTMLComponent {
         this.display = value;
         this.element.style.display = value;
     }
+
     get element() {
         return this.element;
     }
+
     set element(value) {
         this.element = value;
     }

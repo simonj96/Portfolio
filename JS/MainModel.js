@@ -6,7 +6,7 @@ export class MainModel {
     model;
 
     constructor() {
-       
+
         this.loader = loader;
         return this.loadModels();
 
@@ -15,7 +15,7 @@ export class MainModel {
     //Load models
     async loadModels() {
         const gltfloader = new GLTFLoader(loader);
-        const url = '/models/composition3.glb';
+        const url = '/models/alt3.glb';
         const data = await gltfloader.loadAsync(url);
         const mesh = await this.SetupModel(data);
         return mesh;

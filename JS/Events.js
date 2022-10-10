@@ -10,55 +10,87 @@ class Events {
     mouse = new THREE.Vector2();
 
     constructor() {
-        
-        this.SetOnLoad(animationsHandler);
-        //
-        this.SetListeners();
 
-    }
-
-    SetOnLoad(animations){
-
-        loader.onLoad = function ( ) {
-            console.log( 'LOADING COMPLETE FROM EVENTS!');
-            //Use animationhandler
-            animations.Start();
+        loader.onLoad = function () {
+            animationsHandler.Start();
             this.status = true;
-            //this.ga.addToTimeline(function () { console.log('Woohoo!') }, "3");
-
-            //this.ga.timeline.play();
-
-        
         };
+
+        this.SetListeners();
     }
 
-    SetListeners(){
-        document.body.addEventListener('pointermove', e => { this.onDocumentMouseMove(e) });
-        document.getElementById("Project1").addEventListener('click', e => { this.OpenProject(e, "Project 1") });
-        document.getElementById("Project2").addEventListener('click', e => { this.OpenProject(e, "Project 2") });
+    SetListeners() {
+        document.body.addEventListener('pointermove', e => { this.OnDocumentMouseMove(e) });
+
+        document.getElementById("Project1").addEventListener('click', e => { animationsHandler.OpenProject("master") });
+        document.getElementById("Project2").addEventListener('click', e => { animationsHandler.OpenProject("portfolioProject") });
+        document.getElementById("Project3").addEventListener('click', e => { animationsHandler.OpenProject("party") });
+        document.getElementById("Project4").addEventListener('click', e => { animationsHandler.OpenProject("workshift") });
+
         window.addEventListener('resize', () => {
             this.OnWindowResize();
         }, false);
 
-        html.projectReturnButton.element.addEventListener("click", function (e) {
-            console.log("Clicked return button!");
-        }, false);
+        html.projectReturnButton.element.addEventListener("click", e => { animationsHandler.CloseProject() }, false);
+
+        window.onscroll = this.ScrollListener;
+
+        document.getElementById("return-to-top").onclick = this.ToTop;
+
+        //document.getElementById("disableButton").onclick = this.Toggle3D;
+
+        //Project nav and stuff
+        document.getElementById("interactable").addEventListener('click', e => { animationsHandler.OpenSideNav(); });
+        document.getElementsByClassName("closebtn")[0].addEventListener('click', e => { animationsHandler.CloseSideNav() });
+
+        document.getElementById("m").addEventListener('click', e => { animationsHandler.SwitchProject("master") });
+        document.getElementById("t").addEventListener('click', e => { animationsHandler.SwitchProject("portfolioProject") });
+        document.getElementById("p").addEventListener('click', e => { animationsHandler.SwitchProject("party") });
+        document.getElementById("w").addEventListener('click', e => { animationsHandler.SwitchProject("workshift") });
+
+
+        animationsHandler.SetAnimationListeners();
     }
 
-    OpenProject(event, name) {
-        
-        //Use animationhandler!!
-        animationsHandler.OpenProjectExpand();
+    ToTop() {
+        if (document.getElementById("return-to-top").style.opacity != 1) {
+            return;
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    ScrollListener() {
+
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+
+            console.log("Not at top.");
+
+
+        } else {
+            console.log("At top.")
+
+        }
+        if (document.body.scrollTop > window.innerHeight - window.scrollY || document.documentElement.scrollTop > window.innerHeight - window.scrollY) {
+
+        }
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+            console.log("At Bottom.")
+
+
+        } else {
+
+        }
+    }
 
     OnWindowResize() {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
+
     }
 
-    onDocumentMouseMove(event) {
+    OnDocumentMouseMove(event) {
+
         event.preventDefault();
         const canvasBounds = renderer.domElement.getBoundingClientRect();
         this.mouse.x = event.clientX;
