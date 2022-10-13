@@ -16,7 +16,7 @@ export class MainModel {
     //Load models
     async loadModels() {
         const gltfloader = new GLTFLoader(loader);
-        const url = 'https://simonj96.github.io/Portfolio/models/alt3fix.glb';
+        const url = 'https://github.com/simonj96/Portfolio/blob/Testing/models/alt3fix.glb?raw=true';
         const data = await gltfloader.loadAsync(url);
         const mesh = await this.SetupModel(data);
         return mesh;
