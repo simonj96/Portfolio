@@ -1,6 +1,1 @@
-*.glb filter=lfs diff=lfs merge=lfs -text
-*models filter=lfs diff=lfs merge=lfs -text
-models/alt3.glb filter=lfs diff=lfs merge=lfs -text
-models/comp.glb filter=lfs diff=lfs merge=lfs -text
-models/composition3.glb filter=lfs diff=lfs merge=lfs -text
-models/test.glb filter=lfs diff=lfs merge=lfs -text
+*.glb binary
