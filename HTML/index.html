@@ -43,24 +43,23 @@
     <div></div>
   </div>
 
-  <div id="bar">
+  <div class="bar hide">
     <div id="interactable">
       <i class="fa fa-bars"></i>
     </div>
   </div>
 
-  <div id="mySidenav" class="sidenav">
+  <div class="sidenav">
     <a href="javascript:void(0)" class="closebtn">&times;</a>
     <div class="alignRight">
       <div class="list">
-        <a href="#" id="m">Master thesis</a>
-        <a href="#" id="t">Three portfolio</a>
-        <a href="#" id="w">Workshift</a>
-        <a href="#" id="p">Prototype "Party-Pinglor"</a>
+        <a href="#" class="master">Master thesis</a>
+        <a href="#" class="portfolio">Three portfolio</a>
+        <a href="#" class="party">Prototype "Party-Pinglor"</a>
+        <a href="#" class="workshift">Workshift</a>
       </div>
     </div>
   </div>
-
 
   <div class="Footer">
     <ul>
@@ -86,11 +85,11 @@
     </ul>
   </div>
 
-  <div class='container'>
+  <div class='container hide'>
     <div class="container_content">
       <div id="left"></div>
       <div class="container_content_inner">
-        <div id="master" class="content">
+        <div id="masterProject" class="hide">
           <h1 class="readingTitle">
             Master thesis
           </h1>
@@ -118,7 +117,7 @@
 
           </p>
         </div>
-        <div id="portfolioProject" class="content">
+        <div id="portfolioProject" class="hide">
           <h1 class="readingTitle">
             Portfolio project
           </h1>
@@ -171,7 +170,7 @@
 
           </p>
         </div>
-        <div id="party" class="content">
+        <div id="partyProject" class="hide">
           <h1 class="readingTitle">
             Prototype: "Party-Pinglor"
           </h1>
@@ -188,7 +187,7 @@
 
           </p>
         </div>
-        <div id="workshift" class="content">
+        <div id="workshiftProject" class="hide">
           <h1 class="readingTitle">
             Prototype: "Party-Pinglor"
           </h1>
@@ -211,13 +210,13 @@
   </div>
 
   <div class="overlay"></div>
-  <div class="btns">
+  <div class="btns hide">
     <button class="button-30" role="button" id="return">Return</button>
 
   </div>
   </div>
 
-  <div id="a">
+  <div class="a">
 
     <div class="Front fillPage" id="front">
 
@@ -234,26 +233,26 @@
           <li class="projectLi slideLeft">
             <a class="project inline">
               <i class="fa fa-paperclip"></i>
-              <h2 class="hover-underline-animation projectTitle" id="Project1">Master thesis</h2>
+              <h2 class="hover-underline-animation projectTitle" id="master">Master thesis</h2>
 
             </a>
           </li>
           <li class="projectLi slideLeft">
             <a class="project inline">
               <i class="fa fa-briefcase"></i>
-              <h2 class="hover-underline-animation projectTitle" id="Project2">ThreeJS portfolio</h2>
+              <h2 class="hover-underline-animation projectTitle" id="portfolio">ThreeJS portfolio</h2>
             </a>
           </li>
           <li class="projectLi slideLeft">
             <a class="project inline">
               <i class="fa fa-glass"></i>
-              <h2 class="hover-underline-animation projectTitle" id="Project3">Prototype: "Party-Pinglor"</h2>
+              <h2 class="hover-underline-animation projectTitle" id="party">Prototype: "Party-Pinglor"</h2>
             </a>
           </li>
           <li class="projectLi slideLeft">
             <a class="project inline">
               <i class="fa fa-star"></i>
-              <h2 class="hover-underline-animation projectTitle" id="Project4">Workshift</h2>
+              <h2 class="hover-underline-animation projectTitle" id="workshift">Workshift</h2>
             </a>
           </li>
         </ul>
@@ -304,7 +303,8 @@
 <script type="importmap">
   {
     "imports": {
-      "three": "https://unpkg.com/three@0.143.0/build/three.module.js"
+      "three": "https://unpkg.com/three@0.143.0/build/three.module.js",
+      "RoomEnvironment": "https://unpkg.com/three@0.143.0/examples/jsm/environments/RoomEnvironment.js"
     }
   }
 </script>

@@ -1,9 +1,10 @@
 import * as THREE from 'three';
-import { animationsHandler } from './AnimationHandler.js';
-import { html } from './HTMLHandler.js';
+
+import { animations } from './Animations.js';
 import { loader } from './Loader.js';
-import { camera } from './CameraHandler.js';
+import { camera, cameraHandler } from './CameraHandler.js';
 import { renderer } from './ThreeJS.js';
+import { display } from './Display.js';
 
 class Events {
 
@@ -12,7 +13,7 @@ class Events {
     constructor() {
 
         loader.onLoad = function () {
-            animationsHandler.Start();
+            animations.OnLoaded();
             this.status = true;
         };
 
@@ -22,16 +23,16 @@ class Events {
     SetListeners() {
         document.body.addEventListener('pointermove', e => { this.OnDocumentMouseMove(e) });
 
-        document.getElementById("Project1").addEventListener('click', e => { animationsHandler.OpenProject("master") });
-        document.getElementById("Project2").addEventListener('click', e => { animationsHandler.OpenProject("portfolioProject") });
-        document.getElementById("Project3").addEventListener('click', e => { animationsHandler.OpenProject("party") });
-        document.getElementById("Project4").addEventListener('click', e => { animationsHandler.OpenProject("workshift") });
+        document.getElementById("master").addEventListener('click', e => { animations.OpenProject(e.target.id); });
+        document.getElementById("portfolio").addEventListener('click', e => { animations.OpenProject(e.target.id); });
+        document.getElementById("party").addEventListener('click', e => { animations.OpenProject(e.target.id); });
+        document.getElementById("workshift").addEventListener('click', e => { animations.OpenProject(e.target.id); });
 
         window.addEventListener('resize', () => {
             this.OnWindowResize();
         }, false);
 
-        html.projectReturnButton.element.addEventListener("click", e => { animationsHandler.CloseProject() }, false);
+        //html.projectReturnButton.element.addEventListener("click", e => { }, false);
 
         window.onscroll = this.ScrollListener;
 
@@ -40,16 +41,14 @@ class Events {
         //document.getElementById("disableButton").onclick = this.Toggle3D;
 
         //Project nav and stuff
-        document.getElementById("interactable").addEventListener('click', e => { animationsHandler.OpenSideNav(); });
-        document.getElementsByClassName("closebtn")[0].addEventListener('click', e => { animationsHandler.CloseSideNav() });
+        document.getElementById("interactable").addEventListener('mouseenter', e => { animations.OpenSideNav() });
+        document.getElementsByClassName("closebtn")[0].addEventListener('click', e => { animations.CloseSideNav() });
+        document.getElementsByClassName("container")[0].addEventListener('mousemove', e => { animations.CloseSideNav() });
+        document.getElementsByClassName("master")[0].addEventListener('click', e => { animations.SwitchProject(e.target.className); });
+        document.getElementsByClassName("portfolio")[0].addEventListener('click', e => { animations.SwitchProject(e.target.className); });
+        document.getElementsByClassName("party")[0].addEventListener('click', e => { animations.SwitchProject(e.target.className); });
+        document.getElementsByClassName("workshift")[0].addEventListener('click', e => { animations.SwitchProject(e.target.className); });
 
-        document.getElementById("m").addEventListener('click', e => { animationsHandler.SwitchProject("master") });
-        document.getElementById("t").addEventListener('click', e => { animationsHandler.SwitchProject("portfolioProject") });
-        document.getElementById("p").addEventListener('click', e => { animationsHandler.SwitchProject("party") });
-        document.getElementById("w").addEventListener('click', e => { animationsHandler.SwitchProject("workshift") });
-
-
-        animationsHandler.SetAnimationListeners();
     }
 
     ToTop() {
@@ -60,6 +59,8 @@ class Events {
     }
 
     ScrollListener() {
+
+        console.log("ScrollY: " + window.scrollY);
 
         if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
 

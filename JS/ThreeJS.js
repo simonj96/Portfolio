@@ -1,8 +1,10 @@
 import * as THREE from 'three';
+import { RoomEnvironment } from 'RoomEnvironment';
 
 class ThreeJS {
 
     renderer;
+    composer;
     scene;
 
     constructor() {
@@ -17,11 +19,17 @@ class ThreeJS {
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         this.renderer.outputEncoding = THREE.sRGBEncoding;
         this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        this.renderer.toneMappingExposure = 1.0;
 
         document.body.appendChild(this.renderer.domElement);
 
         //Create scene.
         this.scene = new THREE.Scene();
+
+        //Generate evironment map.
+        const pmremGenerator = new THREE.PMREMGenerator(this.renderer);
+        this.scene.environment = pmremGenerator.fromScene(new RoomEnvironment(), 1, 0.1, 100).texture;
+
     }
 
 }

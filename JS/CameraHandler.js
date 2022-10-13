@@ -5,10 +5,10 @@ export class CameraHandler {
 
     camera;
     vector3 = new THREE.Vector3();
-    lookAtTarget = new THREE.Vector3();
+    lookAtTarget = new THREE.Vector3(0, 3.2, 0);
     clock = new THREE.Clock();
     mouse;
-    radius = 10;
+    radius = 6;
 
 
     constructor() {
@@ -31,7 +31,7 @@ export class CameraHandler {
 
         const theta = (this.mouse.x + window.innerWidth / 2) / (window.innerWidth * 2);
 
-        this.vector3.y = 5;
+        this.vector3.y = 3.7;
 
         this.vector3.x = this.radius * Math.sin(theta * Math.PI - Math.PI / 2);
 
