@@ -25,7 +25,7 @@ export class MainModel {
         dracoLoader.setDecoderPath('https://unpkg.com/three@0.143.0/examples/js/libs/draco/gltf/');
         gltfloader.setDRACOLoader(dracoLoader);
         const test = this;
-        //const data = await gltfloader.loadAsync('../models/part1.glb');
+
         await Promise.all([gltfloader.loadAsync(('../models/release.glb'))]).then((values) => {
             values.forEach(i => {
                 test.SetupModel(i);

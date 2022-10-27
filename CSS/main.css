@@ -136,7 +136,7 @@ body::-webkit-scrollbar {
     -ms-flex-align: center;
     justify-content: center;
     padding-left: 5%;
-    width: 40%;
+    width: 60%;
     max-width: 600px;
 }
 
@@ -525,13 +525,13 @@ nav {
 .projectsList {
     margin: 0;
     list-style-type: none;
-    width: 50%;
+
 }
 
 .projectLi {
     margin-top: 16px;
     width: 80%;
-    white-space: nowrap;
+
 }
 
 .projectsHeader {
@@ -941,7 +941,7 @@ h1.readingTitle {
 }
 
 /* @Media for mobile */
-@media screen and (max-device-width : 360px) {
+@media screen and (max-device-width : 420px) {
 
 
     /* Main UI */
@@ -969,8 +969,13 @@ h1.readingTitle {
         font-size: 34px;
     }
 
+    .projectsList {
+        width: 100%;
+    }
+
     .projectLi {
         font-size: 34px;
+        width: 100%;
     }
 
     .project i.fa {
@@ -979,6 +984,11 @@ h1.readingTitle {
     }
 
     /* About */
+    .fillPage {
+        width: 100%;
+
+    }
+
     .fillPage p {
         line-height: normal;
 
