@@ -45,6 +45,7 @@ export class MainModel {
             if (!child.isMesh) return;
             const map = child.material.map;
             child.material = new THREE.MeshBasicMaterial({ map: map });
+            child.material.side = THREE.DoubleSide;
         });
 
 
