@@ -6,6 +6,8 @@ import { display } from './Display.js';
 
 class Main {
 
+    bool = true;
+
     constructor() {
         this.init();
     }
@@ -13,11 +15,10 @@ class Main {
     async init() {
 
         //Will be added when loaded.
-        scene.add(await new MainModel());
+        new MainModel();
 
-        scene.add(display.background);
         scene.add(display.mesh);
-        this.animate()
+        this.animate();
     }
 
     animate() {

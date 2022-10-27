@@ -19,7 +19,6 @@
 
 <body class="stop-scrolling">
 
-  <canvas id="three" style="width: 100%; height: 100%"></canvas>
 
   <div class="Menu">
     <nav>
@@ -43,24 +42,6 @@
     <div></div>
   </div>
 
-  <div class="bar hide">
-    <div id="interactable">
-      <i class="fa fa-bars"></i>
-    </div>
-  </div>
-
-  <div class="sidenav">
-    <a href="javascript:void(0)" class="closebtn">&times;</a>
-    <div class="alignRight">
-      <div class="list">
-        <a href="#" class="master">Master thesis</a>
-        <a href="#" class="portfolio">Three portfolio</a>
-        <a href="#" class="party">Prototype "Party-Pinglor"</a>
-        <a href="#" class="workshift">Workshift</a>
-      </div>
-    </div>
-  </div>
-
   <div class="Footer">
     <ul>
       <li>
@@ -77,11 +58,6 @@
         <a target="_blank" rel="noopener noreferrer" href="mailto:simonj96.work@gmail.com"
           class="fa fa-envelope fa-fw"></a>
       </li>
-      <li>
-        <div id="disable3d">
-          <button id="disableButton"> 3D </button>
-        </div>
-      </li>
     </ul>
   </div>
 
@@ -90,117 +66,256 @@
       <div id="left"></div>
       <div class="container_content_inner">
         <div id="masterProject" class="hide">
-          <h1 class="readingTitle">
+          <h1 class="title">
             Master thesis
           </h1>
           <div class="center">
             <img class="container_img" src="../Projects/Images/test.jpg">
           </div>
           <p class="summary">
-            House of How is an authorized and leading third-party studio that develops microtransactions for the
-            Minecraft Marketplace full time. They create everything from Skin Packs and Character Packs to Minecraft
-            Worlds (Maps) to then sell on the marketplace. They are stationed in Seattle, USA but are also partly
-            stationed in Boden, Sweden where they teach game design/development.
-
+            <a class="introlink" target="_blank" rel="noopener noreferrer" href="https://houseofhow.com/">House of
+              How</a> is an authorized and leading third-party studio from Seattle, USA that develops microtransactions
+            for the
+            <a class="introlink" target="_blank" rel="noopener noreferrer"
+              href="https://www.minecraft.net/en-us/marketplace">Minecraft Marketplace</a> full time. They mainly create
+            Skin Packs, Character Packs and Minecraft
+            Worlds (also known as maps) to then sell on the marketplace to players in Minecraft. <a class="introlink"
+              target="_blank" rel="noopener noreferrer"
+              href="https://drive.google.com/file/d/1gOCysFM4aaSgfJkEPT8G0dHGRNLeffZb/view?usp=sharing">My master
+              thesis</a> was about streamlining the process of creating maps.
 
           </p>
           <h2 class="title">
-            Highlights of the project:
+            About the thesis.
           </h2>
-          <p class="mainText">
-            I was asked to research and develop a tool that would help streamline the process for creating maps, as they
-            had identified that it is unnecessarily time consuming due to logistical issues covered in the thesis.
-
-            The project started with research about Minecraft, the workflow they have for creating maps and
-            identifying/reaffirming potential pain points that may exist. It then continued with iterations of
-            prototyping and
+          <p class="text">
+            I was asked to help research and develop a tool to assist developers in the process of creating maps, as
+            they had identified that it is needlessly time consuming due to certain logistical issues that could be
+            alleviated with this program.
+            <br><br>
+            A Minecraft World or “Map” is an instance of the game where certain aspects have been altered to provide a
+            different experience from the regular base game. Everything is up for change, models, behaviors, blocks,
+            items and game rules. This makes it so that dedicated studios such as House of How can create playable
+            experiences for players to buy access to and enjoy.
+            <br><br>
+            As outlined in my thesis, there were several pain points for developers to create maps. For example,
+            creating an entire new entity to add to the game required several additions to multiple files in multiple
+            folders to abide the coding standards set by Microsoft. This caused not only confusion for new developers
+            but was also time consuming.
+            <br><br>
+            I did research, conducted interviews, developed prototypes and had several back and forths with developers
+            from the company to pinpoint these issues and find possible countermeasures to include in the tool.
+            <br><br>
+            As the project progressed the design for the tool became more refined in the form of higher fidelity
+            prototypes. The prototyping phase was an iterative process starting off with lower fidelity prototyping and
+            wireframing, getting feedback from the company and then continuing the process with the high fidelity
+            version made in WPF C# by House of How’s request.
+            <br><br>
+            For more specifics about the project, please see <a class="introlink" target="_blank"
+              rel="noopener noreferrer"
+              href="https://drive.google.com/file/d/1gOCysFM4aaSgfJkEPT8G0dHGRNLeffZb/view?usp=sharing">here</a>.
 
           </p>
         </div>
         <div id="portfolioProject" class="hide">
-          <h1 class="readingTitle">
+          <h1 class="title">
             Portfolio project
           </h1>
           <div class="center">
             <img class="container_img" src="../Projects/Images/test.jpg">
           </div>
           <p class="summary">
-            This portfolio is developed using HTML, CSS and Javascript. The 3D environment is made using Three, a 3D
-            Javascript Library which uses WebGL to create animated 3D graphics.
-
-            The aim of the portfolio is to give an example of my knowledge in interaction and design while also having
-            somewhere to present my other previous work.
+            This portfolio was developed using HTML, CSS and JavaScript. The 3D environment is made using <a
+              class="introlink" target="_blank" rel="noopener noreferrer" href="https://threejs.org/">Three</a>, a 3D
+            JavaScript library which uses WebGL to create animated 3D graphics.
+            <br><br>
+            The purpose of the portfolio is to give an example of my knowledge in interaction design, creating a space
+            to
+            present some of my projects while also learning about Three and 3D development.
 
           </p>
-          <h2 class="title">
-            Highlights of the project:
-          </h2>
-          <p class="mainText">
-            The goal was to create a “one-page” portfolio where I could present myself and put up my previous projects
-            for display. Having previously done a few websites in HTML already I decided to make it more interesting by
-            integrating Three.js into the project. I did this to challenge myself and to push the limits of my knowledge
-            about user interaction and design.
-            :
-            The 3D environment is in the background while the HTML rests on top. As the user enters the website it is
-            presented by the front page which greets them and has a brief introduction about me. The flow is deliberate
-            and starts with introductions before the user can freely continue downward for more information, as the user
-            scrolls down the site the 3D environment pans out revealing even more of the scene. At the end you can
-            clearly see the office in the scene as you browse the main content of the portfolio and how the items in the
-            list interact with things on the scene.
+          <h3 class="sub-title">About the project.</h3>
+          <p class="text">
+            The goal was to create a “one-page” portfolio to present myself and put up my projects for display. Because
+            I've already made a few websites in HTML I decided to make it more interesting by integrating Three.js into
+            the project. I did this to challenge myself and to push the limits of my knowledge about interaction design.
+            <br><br>
+            The 3D environment is in the background while the HTML rests on top. As the user scrolls down the site
+            revealing more information the 3D environment also pans out revealing even more of the scene.
 
-            Early in development I switched to my laptop which has a very bad GPU and quickly realized how taxing the 3D
-            environment was on low end computers. This caused me to investigate what I could do to optimize the website
-            so that lower end computers could stand a chance of rendering the site.
+          </p>
+          <h3 class="sub-title">Performance:</h3>
+          <p class="text">
+            Early in development I switched to my laptop which has a very bad GPU/CPU and quickly realized how taxing
+            the 3D environment was on low end computers. This caused me to investigate what I could do to optimize the
+            website so that lower end systems could stand a chance of rendering my fairly simple site. I believe this is
+            one of the big reasons why we don’t see many websites use dynamic 3D rendering.
+            <br><br>
+            But I was determined to make it happen. The big culprit was dynamic lighting and shadows. Having to
+            constantly raytrace and calculate lighting for even the simplest of models (such as a cube) caused a
+            detrimental impact to the performance. By disabling shadows and lighting, the performance went up a lot,
+            which isn’t a surprise if you have any experience with video games, where disabling shadows is a common
+            solution to increase performance.
+            <br><br>
+            However, that left me with a rather unattractive background for a site and required me to go back to the
+            drawing board and learn even more about 3D rendering, things I did not expect I would have to learn in order
+            to get this to work.
+            <br><br>
+            The solution I found was a common technique used in the 3D space called “shadow baking”. Baking a shadow
+            means that you save the textures with the lighting (or shadows) that is projected onto that texture,
+            essentially taking a screenshot of all the models in that scene. This means that we do not need dynamic
+            lighting in our scene anymore, getting that performance boost I previously mentioned while still emulating
+            lights and shadows.
+            <br><br>
+            Now this was anything but simple, as I’m new to Blender and Three, but after a few tries I learned the
+            tricks and made it work. Shadow baking is an essential technique for working with 3D regardless if you use
+            dynamic lighting or not. There’s a bunch of other techniques like ambient occlusion and light -mapping to
+            ease the burden on our systems while rendering 3D environments. This project only used shadow baking. The
+            drawback of not having dynamic lights is that we can’t have things move that would need shadows as they are
+            stuck on the textures, but in the case of non moving models this is an amazing option.
+            <br><br>
+            Another issue I encountered was that I first made a very detailed high fidelity scene in Blender without
+            thinking about the model size after export. Complex high fidelity models don't really lag using baked
+            shadows, however they do increase in size quite a bit, namely because of the textures. The first scene I
+            made was 300MB large (probably bloated from a lot of accumulated textures and materials) which is..
+            unsustainable for a website to say the least. This caused me to go back and learn a few things to bake lower
+            resolution textures while still retaining most of the quality. And it worked out great, the current project
+            has a size of about 9mb which I then further compressed using this compression <a class="introlink"
+              target="_blank" rel="noopener noreferrer" href="https://github.com/CesiumGS/gltf-pipeline">tool</a>.
 
-            The answer was dynamic lights and shadows. Having to constantly raytrace and calculate these was very
-            demanding so by simply disabling shadows I gained a huge performance boost, but now the environment looks
-            worse. I was originally going to implement it so that when a user drops below a certain performance
-            threshold the shadows would disable themselves, but instead I found a compromise. I was going to use
-            “Shadow-baking”. Shadow baking is when you “snapshot” shadows onto the textures, practically allowing you to
-            run without having to constantly calculate the shadow rendering. This solution worked perfectly for this
-            project because I mostly have static meshes. Implementing this allowed for my bad laptop to run the site
-            flawlessly without compromising the look of the environment.’
-
-            If the 3D environment still made a user lag, or if anyone finds it distracting/confusing i implemented a
-            “Simple View” -mode that turns the site into a more basic version.
-
-            In conclusion, Three seems like a really good medium to implement into websites to include 3D functionality.
-            You only need to be wary of the taxing performance that could come with it if you don’t plan for it
-            properly.
 
           </p>
         </div>
         <div id="partyProject" class="hide">
-          <h1 class="readingTitle">
+          <h1 class="title">
             Prototype: "Party-Pinglor"
+          </h1>
+          <div class="center">
+            <img class="container_img" src="../Projects/Images/protofront.png">
+          </div>
+          <h2 class="title">
+            About the project.
+          </h2>
+          <p class="text">
+
+            In this course we learned more about developing prototypes for mobile applications. The last project of the
+            course was very open ended, the main goal and purpose was to end up with a high fidelity prototype. How you
+            made it and with what, was up to us to decide.
+          </p>
+
+          <div class="center">
+            <img class="container_img" src="../Projects/Images/proto3.png">
+            <p class="figure">Figure 1. Frontpage of the application.</p>
+          </div>
+          <p class="text">
+
+            We developed an idea called “Prototypiska party-pinglor” which was an application that would gather a list
+            of the closest party places (bars) and give a condensed neat summary to the user.
+            <br><br>
+            First we started off developing the application in a program called Figma (a simple online prototyping
+            tool). After deciding on a design we then began further developing the application using React native.
+          <div class="center">
+            <img class="container_img" src="../Projects/Images/proto1.png">
+            <p class="figure">Figure 2. Browse for party places.</p>
+          </div>
+          <p class="text">
+            To pull “party places" we used Google's API. This allowed us to get some information on bars within a
+            certain radius, we also made use of other metrics available such as “pricing”.
+          </p>
+          <div class="center">
+            <img class="container_img" src="../Projects/Images/proto2.png">
+            <p class="figure">Figure 3. More details about the place.</p>
+          </div>
+          </p>
+        </div>
+        <div id="androidProject" class="hide">
+          <h1 class="title">
+            Game development in Android Studio
           </h1>
           <div class="center">
             <img class="container_img" src="../Projects/Images/test.jpg">
           </div>
           <p class="summary">
-
+            These projects come from a course that focused on teaching game development in Android Studio. Android
+            Studio is an integrated development environment made by Google to develop applications for the Android
+            operating system.
           </p>
-          <h2 class="title">
-            Highlights of the project:
-          </h2>
-          <p class="mainText">
+          <h3 class="sub-title">About the project.</h3>
+          <p class="text">
+            During the course we made three individual projects, each integrating something new into to our use of
+            Android Studio. The first project was a "space-shooter", a sort of Flappy Bird clone with shooting, see
+            below in Figure 1.
+          </p>
+          <div class="center">
+            <img class="container_img" src="../Projects/Images/a1.png">
+            <p class="figure">Figure 1. Space Shooter in Android Studio.</p>
+          </div>
+          <p class="text">
+            By holding down to accelerate you also fly upwards. Due to it being a mobile game it had touch controls to
+            the left for acceleration and a button to the right for firing. The first project was more about learning
+            the ways of Android Studio and how it works.
 
+            The second project was to develop a platformerm, each project had a list of features that you could choose
+            from to implement. You had to choose a certain number of them to pass the course.
+            The platformer i made had spikes you took damage from if you touched them, life points, score system and
+            sound effects.
+          </p>
+          <div class="center">
+            <img class="container_img" src="../Projects/Images/plat.png">
+            <p class="figure">Figure 2. Platformer in Android Studio.</p>
+          </div>
+          <p class="text">
+            Third project was to implement Asteroids, a classic! Sadly I don't have any pictures of that project.
+          </p>
+          <h3 class="sub-title">Conclusion.</h3>
+          <p class="text">
+            Working with Android Studio and with native mobile applications in general, the environment and work
+            structure is quite different from what i was used to. Having to deal with window instances and different
+            ways to map input and controls was not something i was used to at this point. However, Android Studio
+            provides a fairly good interface for developing application even though it felt clumsy at times (especially
+            compared to Unity).
           </p>
         </div>
         <div id="workshiftProject" class="hide">
           <h1 class="readingTitle">
-            Prototype: "Party-Pinglor"
+            Prototype: Workshift
           </h1>
           <div class="center">
-            <img class="container_img" src="../Projects/Images/test.jpg">
+            <img class="container_img" src="../Projects/Images/wsfront.png">
           </div>
           <p class="summary">
+            The focus of this course was to apply our business and engineering knowledge to develop an idea into a
+            technical system. The workflow covers the entire business development chain from idea to presentation of a
+            prototype and business plan using Business Model Canvas (BMC). The course also covered entrepreneurship and
+            other business related aspects and concepts.
 
           </p>
           <h2 class="title">
-            Highlights of the project:
+            About the project.
           </h2>
-          <p class="mainText">
+          <p class="text">
+            The idea we (a group of 3) came up with was called “Workshift”, a service that was to quickly and smoothly
+            match a person’s competencies with the skills and needs of the employers.
+            <br><br>
+            The matching would take place in an application where people create profiles containing their skills and
+            previous experiences and where employers would go to find people perfect for their specific job. The main
+            purpose behind the idea was to ease the burden on people without jobs and to let them have a broad reach in
+            multiple areas of their field without having to actively look for them and for companies to have an easy
+            service to find the right person for the position. Think Tinder but for jobs.
+            <br><br>
+            One of the main selling points was that it was going to bundle everything that goes into recruiting in one,
+            even signing contracts.
+            <br><br>
+            As the purpose of the course was to practice assessing ideas over several iterations and evaluate the
+            business viability based on the BMC, the conclusion of the project was that it was too similar to very large
+            competitors (LinkedIn) and unless re-evaluated and niched to separate ourselves from them it would be hard
+            to realistically implement.
+            <br><br>
+            The prototype was made using a website called <a class="introlink" target="_blank" rel="noopener noreferrer"
+              href="https://www.framer.com/">Framer</a>. Framer allows for simultaneous editing on prototypes.
+            One of its main features is that it supports a component based work structure similar to React. Framer also
+            lets you export components you’ve made into React for further implementation (not something we used for this
+            project).
 
           </p>
         </div>
@@ -209,7 +324,6 @@
     </div>
   </div>
 
-  <div class="overlay"></div>
   <div class="btns hide">
     <button class="button-30" role="button" id="return">Return</button>
 
@@ -223,7 +337,7 @@
     </div>
 
     <div class="Projects fillPage" id="proj">
-      <div class="projectsContainer">
+      <div class="projectsContainer" id="q">
         <div class="projectsHeader inline slideLeft">
 
           <h1>Projects</h1>
@@ -247,6 +361,12 @@
             <a class="project inline">
               <i class="fa fa-glass"></i>
               <h2 class="hover-underline-animation projectTitle" id="party">Prototype: "Party-Pinglor"</h2>
+            </a>
+          </li>
+          <li class="projectLi slideLeft">
+            <a class="project inline">
+              <i class="fa fa-gamepad"></i>
+              <h2 class="hover-underline-animation projectTitle" id="android">Game development: Android Studio</h2>
             </a>
           </li>
           <li class="projectLi slideLeft">
@@ -292,14 +412,17 @@
       </p>
 
     </div>
-    <a id="return-to-top"><i class="icon-chevron-up"></i></a>
+    <a class="return-to-top"><i class="icon-chevron-up"></i></a>
   </div>
+
+  <canvas id="three"></canvas>
 </body>
 
 <!-- Main script -->
 
 <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
+  integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
 <script type="importmap">
   {
     "imports": {

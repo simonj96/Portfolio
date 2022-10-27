@@ -3,7 +3,7 @@ import { CSSPlugin } from "https://cdn.skypack.dev/gsap/CSSPlugin.js"
 import { HTMLComponent } from "./HTMLComponent.js";
 
 gsap.registerPlugin(CSSPlugin);
-
+//OBS!! not currently in use due to gsap cdn servers going down lol.
 //Custom GSAP animations.
 export class GSAPAnimations {
 

@@ -5,16 +5,20 @@ export class CameraHandler {
 
     camera;
     vector3 = new THREE.Vector3();
-    lookAtTarget = new THREE.Vector3(0, 3.2, 0);
+    lookAtTarget = new THREE.Vector3(0, 3.5, 0);
+    fov = 50;
     clock = new THREE.Clock();
     mouse;
-    radius = 6;
-
+    radius = 4;
+    enableUpdate = true;
+    curve;
+    points;
 
     constructor() {
 
         this.mouse = mouse;
-        this.camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 1000);
+        this.camera = new THREE.PerspectiveCamera(this.fov, window.innerWidth / window.innerHeight, 0.01, 1000);
+
     }
 
     get camera() {
@@ -22,23 +26,27 @@ export class CameraHandler {
     }
 
     updateCamera() {
+        if (!this.enableUpdate) {
+            console.log("blocking");
+            return;
+        }
         //Update Camera        
         this.delta = this.clock.getDelta();
-        this.StandardCameraBehaviour();
+        this.CameraBehaviour();
     }
 
-    StandardCameraBehaviour() {
+    CameraBehaviour() {
 
-        const theta = (this.mouse.x + window.innerWidth / 2) / (window.innerWidth * 2);
 
-        this.vector3.y = 3.7;
+        const theta = (this.mouse.x + window.innerWidth / 3) / (window.innerWidth * 2);
+
+        this.vector3.y = 4 + this.radius / 7.5;
 
         this.vector3.x = this.radius * Math.sin(theta * Math.PI - Math.PI / 2);
 
         this.vector3.z = this.radius * Math.cos(theta * Math.PI - Math.PI / 2);
 
         this.lerpCamera();
-
         this.camera.lookAt(this.lookAtTarget);
 
     }

@@ -1,10 +1,12 @@
 import { HTMLComponent } from "./HTMLComponent.js";
+import { CameraHandler } from "./CameraHandler.js";
 
 class Animations {
 
     boolean = true;
-    currentP;
-
+    boolean2 = false;
+    currentProject;
+    cooldown = false;
     constructor() {
         this.init();
     }
@@ -16,13 +18,12 @@ class Animations {
         this.scroller = document.getElementById("scroller");
         this.navbar = document.getElementsByClassName("Menu")[0];
         this.footer = document.getElementsByClassName("Footer")[0];
+        this.top = document.getElementsByClassName("return-to-top")[0];
 
         this.overlay = document.getElementsByClassName("overlay")[0];
         this.project = document.getElementsByClassName("container")[0];
         this.button = document.getElementsByClassName("btns")[0];
-        this.navbutton = document.getElementsByClassName("bar")[0];
-        this.sidenav = document.getElementsByClassName("sidenav")[0];
-
+        this.projectlist = document.getElementsByClassName("projectsContainer")[0];
     }
 
     OnLoaded() {
@@ -32,79 +33,94 @@ class Animations {
         setTimeout(() => { this.ToggleUI() }, 1000);
         setTimeout(() => { this.AllowScroll() }, 1000);
 
+
     }
 
     AllowScroll() {
-        console.log("TESTING");
         document.body.classList.remove("stop-scrolling");
     }
 
     OpenProject(string) {
-
         this.FadeOut(this.main);
 
         this.project.style.position = "fixed";
         this.FadeIn(this.project);
 
+        //Weird animation fix
         setTimeout(() => {
             this.project.style.position = "relative";
             this.FadeIn(this.button);
-            this.FadeIn(this.navbutton);
+
         }, 1000);
 
-        this.currentP = document.getElementById(string + "Project");
-        this.currentP.style.position = "relative";
-        this.currentP.classList.remove('hide');
-        this.FadeIn(this.currentP);
-
-        this.button.addEventListener('click', () => { this.CloseProject() });
+        this.currentProject = document.getElementById(string + "Project");
+        this.currentProject.style.position = "relative";
+        this.currentProject.classList.remove('hide');
+        this.FadeIn(this.currentProject);
     }
 
     CloseProject() {
 
         this.FadeOut(this.button);
-        this.FadeOut(this.navbutton);
-        this.FadeOut(this.project);
-        setTimeout(() => { this.currentP.classList.add('hide') }, 1000);
+
+        setTimeout(() => {
+            this.currentProject.classList.add('hide');
+            this.project.classList.add('hide');
+            this.project.style.opacity = 0;
+        }, 0);
 
         this.FadeIn(this.main);
-
-    }
-    OpenSideNav() {
-        console.log("click");
-        this.sidenav.style.minWidth = screen.width > 370 ? 700 : "100%";
-        this.sidenav.style.transform = "skewX(15deg) translateX(0)";
-        this.project.style.paddingLeft = "120px";
-        this.project.style.filter = "blur(5px)";
-        this.button.style.filter = "blur(5px)";
-    }
-
-    CloseSideNav() {
-        this.sidenav.style.transform = "skewX(15deg) translateX(-100%)";
-        this.project.style.paddingLeft = "0px";
-        this.project.style.filter = "blur(0px)";
-        this.button.style.filter = "blur(0px)";
+        var p = $('#q').position();
+        window.scrollTo({
+            top: p.top - window.innerHeight / 2,
+            left: 0,
+            behavior: 'auto',
+            block: 'center',
+            inline: 'center'
+        });
     }
 
     SwitchProject(string) {
         console.log(string);
         this.CloseSideNav();
-        this.currentP.style.position = "fixed";
-        this.FadeOut(this.currentP);
-        this.currentP = document.getElementById(string + "Project");
+        this.currentProject.style.position = "fixed";
+        this.FadeOut(this.currentProject);
+        this.currentProject = document.getElementById(string + "Project");
 
-        this.currentP.style.position = "relative";
-        this.FadeIn(this.currentP);
+        this.currentProject.style.position = "relative";
+        this.FadeIn(this.currentProject);
     }
 
+    ToTop() {
+        if (this.top.style.opacity < 0.5) {
+            return;
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
     FadeOut(element) {
         element.style.opacity = 0;
-        setTimeout(() => element.classList.add('hide'), 1000);
+        setTimeout(() => element.classList.add('hide'), 700);
     }
 
     FadeIn(element) {
         element.classList.remove('hide');
         setTimeout(() => { element.style.opacity = 1 }, 10);
+
+    }
+
+    ToggleScroller(boolean) {
+
+        boolean ? this.scroller.style.opacity = 0.5 : this.scroller.style.opacity = 0;
+
+    }
+    ToggleToTopButton(boolean) {
+        if (boolean) {
+            this.top.style.opacity = 0.5;
+            this.top.style.cursor = "pointer";
+        } else {
+            this.top.style.opacity = 0;
+            this.top.style.cursor = "auto";
+        }
     }
 
     ToggleUI() {

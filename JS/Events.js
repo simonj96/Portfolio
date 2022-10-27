@@ -4,83 +4,111 @@ import { animations } from './Animations.js';
 import { loader } from './Loader.js';
 import { camera, cameraHandler } from './CameraHandler.js';
 import { renderer } from './ThreeJS.js';
-import { display } from './Display.js';
+import { Display, display } from './Display.js';
 
 class Events {
 
     mouse = new THREE.Vector2();
+    scrollenable = true;
+
+
 
     constructor() {
 
         loader.onLoad = function () {
             animations.OnLoaded();
+            display.SetDisplay(Display.TEXTURE.DEFAULT);
             this.status = true;
         };
+
+        this.mouse.x = window.innerWidth / 2;
 
         this.SetListeners();
     }
 
     SetListeners() {
-        document.body.addEventListener('pointermove', e => { this.OnDocumentMouseMove(e) });
-
-        document.getElementById("master").addEventListener('click', e => { animations.OpenProject(e.target.id); });
-        document.getElementById("portfolio").addEventListener('click', e => { animations.OpenProject(e.target.id); });
-        document.getElementById("party").addEventListener('click', e => { animations.OpenProject(e.target.id); });
-        document.getElementById("workshift").addEventListener('click', e => { animations.OpenProject(e.target.id); });
 
         window.addEventListener('resize', () => {
             this.OnWindowResize();
         }, false);
 
-        //html.projectReturnButton.element.addEventListener("click", e => { }, false);
+        document.body.addEventListener('pointermove', e => { this.OnDocumentMouseMove(e) });
+        document.body.addEventListener('touchmove', e => { this.OnDocumentMouseMove(e) });
 
-        window.onscroll = this.ScrollListener;
+        //Main project list
+        document.getElementById("master").addEventListener('click', e => { this.Open(e.target.id); });
+        document.getElementById("portfolio").addEventListener('click', e => { this.Open(e.target.id); });
+        document.getElementById("party").addEventListener('click', e => { this.Open(e.target.id); });
+        document.getElementById("android").addEventListener('click', e => { this.Open(e.target.id); });
+        document.getElementById("workshift").addEventListener('click', e => { this.Open(e.target.id); });
 
-        document.getElementById("return-to-top").onclick = this.ToTop;
+        const def = '../Projects/Images/test.jpg';
 
-        //document.getElementById("disableButton").onclick = this.Toggle3D;
+        //On hover main project list
+        document.getElementById("master").addEventListener('mouseover', e => { display.SetDisplay(Display.TEXTURE.MASTER); });
+        document.getElementById("portfolio").addEventListener('mouseover', e => { display.SetDisplay(Display.TEXTURE.PORT); });
+        document.getElementById("party").addEventListener('mouseover', e => { display.SetDisplay(Display.TEXTURE.PARTY); });
+        document.getElementById("android").addEventListener('mouseover', e => { display.SetDisplay(Display.TEXTURE.ANDROID); })
+        document.getElementById("workshift").addEventListener('mouseover', e => { display.SetDisplay(Display.TEXTURE.WORKSHIFT); });
 
-        //Project nav and stuff
-        document.getElementById("interactable").addEventListener('mouseenter', e => { animations.OpenSideNav() });
-        document.getElementsByClassName("closebtn")[0].addEventListener('click', e => { animations.CloseSideNav() });
-        document.getElementsByClassName("container")[0].addEventListener('mousemove', e => { animations.CloseSideNav() });
-        document.getElementsByClassName("master")[0].addEventListener('click', e => { animations.SwitchProject(e.target.className); });
-        document.getElementsByClassName("portfolio")[0].addEventListener('click', e => { animations.SwitchProject(e.target.className); });
-        document.getElementsByClassName("party")[0].addEventListener('click', e => { animations.SwitchProject(e.target.className); });
-        document.getElementsByClassName("workshift")[0].addEventListener('click', e => { animations.SwitchProject(e.target.className); });
+        //Reset
+        document.getElementById("master").addEventListener('mouseout', e => { display.SetDisplay(Display.TEXTURE.DEFAULT); });
+        document.getElementById("portfolio").addEventListener('mouseout', e => { display.SetDisplay(Display.TEXTURE.DEFAULT); });
+        document.getElementById("party").addEventListener('mouseout', e => { display.SetDisplay(Display.TEXTURE.DEFAULT); });
+        document.getElementById("android").addEventListener('mouseout', e => { display.SetDisplay(Display.TEXTURE.DEFAULT); })
+        document.getElementById("workshift").addEventListener('mouseout', e => { display.SetDisplay(Display.TEXTURE.DEFAULT); });
+
+
+        this.toTopButton = document.getElementsByClassName("return-to-top")[0];
+
+        //Project navigation
+        document.getElementsByClassName("btns")[0].addEventListener('click', () => { animations.CloseProject(); this.scrollenable = true; });
+
+
+        window.addEventListener("scroll", e => { this.ScrollListener(); });
 
     }
 
-    ToTop() {
-        if (document.getElementById("return-to-top").style.opacity != 1) {
-            return;
-        }
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+    Open(id) {
+        animations.OpenProject(id);
+        this.scrollenable = false;
     }
+
+
+
 
     ScrollListener() {
+        if (!this.scrollenable) {
+            return;
+        }
+        cameraHandler.radius = 4 + window.scrollY / (document.body.offsetHeight - window.innerHeight) * 6;;
 
-        console.log("ScrollY: " + window.scrollY);
+        //console.log(cameraHandler.radius);
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
 
-        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-
-            console.log("Not at top.");
-
+            animations.ToggleScroller(false);
 
         } else {
-            console.log("At top.")
+            //at top
+            animations.ToggleScroller(true);
 
         }
-        if (document.body.scrollTop > window.innerHeight - window.scrollY || document.documentElement.scrollTop > window.innerHeight - window.scrollY) {
 
-        }
+        //At bottom
         if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-            console.log("At Bottom.")
+
+            this.toTopButton.addEventListener('click', e => { animations.ToTop();; });
+            animations.ToggleToTopButton(true);
 
 
         } else {
 
+            this.toTopButton.removeEventListener('click', e => { animations.ToTop(); });
+
+            animations.ToggleToTopButton(false);
+
         }
+
     }
 
     OnWindowResize() {
@@ -91,11 +119,9 @@ class Events {
     }
 
     OnDocumentMouseMove(event) {
-
-        event.preventDefault();
-        const canvasBounds = renderer.domElement.getBoundingClientRect();
-        this.mouse.x = event.clientX;
-        this.mouse.y = - ((event.clientY - canvasBounds.top) / (canvasBounds.bottom - canvasBounds.top)) * 2 + 1;
+        event.type == 'touchmove' ? this.mouse.x = event.touches[0].clientX : this.mouse.x = event.clientX;
+        //const canvasBounds = renderer.domElement.getBoundingClientRect();
+        //this.mouse.y = - ((event.clientY - canvasBounds.top) / (canvasBounds.bottom - canvasBounds.top)) * 2 + 1;
     }
 
     get mouse() {
