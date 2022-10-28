@@ -8,8 +8,9 @@ class ThreeJS {
     scene;
 
     constructor() {
+
         //Create canvas.
-        const canvas = document.getElementById('three')
+        const canvas = document.getElementById('three');
         canvas.width = 32;
         canvas.height = window.innerHeight;
 
@@ -29,7 +30,6 @@ class ThreeJS {
         //Generate evironment map.
         const pmremGenerator = new THREE.PMREMGenerator(this.renderer);
         this.scene.environment = pmremGenerator.fromScene(new RoomEnvironment(), 0, 0.1, 100).texture;
-
     }
 
 }

@@ -30,10 +30,10 @@ class Animations {
 
         this.FadeOut(this.ring);
         this.FadeIn(this.main);
-        setTimeout(() => { this.ToggleUI() }, 1000);
+
         setTimeout(() => { this.AllowScroll() }, 1000);
-
-
+        setTimeout(() => { this.overlay.style.opacity = 0; }, 1000);
+        setTimeout(() => { this.FadeIn(this.scroller); }, 2000);
     }
 
     AllowScroll() {
@@ -115,7 +115,7 @@ class Animations {
     }
     ToggleToTopButton(boolean) {
         if (boolean) {
-            this.top.style.opacity = 0.5;
+            this.top.style.opacity = 0.7;
             this.top.style.cursor = "pointer";
         } else {
             this.top.style.opacity = 0;
@@ -123,18 +123,19 @@ class Animations {
         }
     }
 
-    ToggleUI() {
-        if (this.boolean) {
-            this.FadeIn(this.scroller);
-            this.FadeIn(this.navbar);
-            this.FadeIn(this.footer);
+
+    ShowUI(boolean) {
+        if (boolean) {
+
+            this.navbar.style.opacity = 0.7
+            this.footer.style.opacity = 0.7
+
         } else {
-            this.FadeOut(this.scroller);
-            this.FadeOut(this.navbar);
-            this.FadeOut(this.footer);
+            this.navbar.style.opacity = 0;
+            this.footer.style.opacity = 0;
 
         }
-        this.boolean = !this.boolean;
+
     }
 
 }

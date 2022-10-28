@@ -19,6 +19,7 @@
 
 <body class="stop-scrolling">
 
+  <div class="overlay"></div>
 
   <div class="Menu">
     <nav>
@@ -119,7 +120,7 @@
         </div>
         <div id="portfolioProject" class="hide">
           <h1 class="title center">
-            Portfolio project
+            Three.js portfolio
           </h1>
           <div class="center">
             <img class="container_img" src="../Projects/Images/test.jpg">
@@ -187,138 +188,93 @@
           </p>
         </div>
         <div id="partyProject" class="hide">
-          <h1 class="title center">
-            Prototype: "Party-Pinglor"
-          </h1>
-          <div class="center">
-            <img class="container_img" src="../Projects/Images/protofront.png">
+          <div class="banner">
+            <img class="container_img" src="../Projects/Images/PrototypeBanner.png">
           </div>
+          <h1 class="title center">
+            Prototyping in React Native.
+          </h1>
+
+          <p class="summary">
+            While learning about design during my time at university we had a few opportunities to lead
+            projects of our own. Below is a write up on a couple of prototypes we made in React Native as final projects
+            of the courses “Prototype development for mobile applications” and “Innovative mobile services and systems
+            (Internet of Things)”, if you would like to see details about my education please see <a class="introlink"
+              target="_blank" rel="noopener noreferrer"
+              href="https://www.umu.se/utbildning/program/civilingenjorsprogrammet-i-interaktion-och-design/">here</a>.
+          </p>
           <h2 class="title">
-            About the project.
+            Night Out.
           </h2>
           <p class="text">
-
-            In this course we learned more about developing prototypes for mobile applications. The last project of the
-            course was very open ended, the main goal and purpose was to end up with a high fidelity prototype. How you
-            made it and with what, was up to us to decide.
+            In the course "Prototype development for mobile applications" we learned more about the process of
+            prototyping. The last project of the
+            course was very open ended, the purpose was to practice at cooperating on design and to recieve
+            and give feedback in cycles. Hopefully, in the end you would end up with a nice prototype for an idea you
+            had
+            as a
+            group.
+            <br><br>
+            Since there's a wide range of tools to use for creating prototypes, which one we used was up to us. We
+            decided on first using <a class="introlink" target="_blank" rel="noopener noreferrer"
+              href="https://www.figma.com/">Figma</a> (a simple online prototyping tool) during the earlier stages of
+            the project, then finalizing the prototype in React Native.
           </p>
 
           <div class="center">
-            <img class="container_img" src="../Projects/Images/proto3.png">
+            <img class="container_img" src="../Projects/Images/proto3.png" style="width: 25%;">
             <p class="figure">Figure 1. Frontpage of the application.</p>
           </div>
           <p class="text">
-
-            We developed an idea called “Prototypiska party-pinglor” which was an application that would gather a list
-            of the closest party places (bars) and give a condensed neat summary to the user.
-            <br><br>
-            First we started off developing the application in a program called Figma (a simple online prototyping
-            tool). After deciding on a design we then began further developing the application using React native.
+            Our idea was called "Night Out", which was supposed to be an application for searching for places to go out
+            to. Since we wanted some functionality, we made use of Google's API to fetch bars within a certain radius,
+            and made use of Googles information.
+          </p>
           <div class="center">
-            <img class="container_img" src="../Projects/Images/proto1.png">
+            <img class="container_img" src="../Projects/Images/proto1.png" style="width: 25%;">
             <p class="figure">Figure 2. Browse for party places.</p>
           </div>
           <p class="text">
-            To pull “party places" we used Google's API. This allowed us to get some information on bars within a
-            certain radius, we also made use of other metrics available such as “pricing”.
+            In Figure 2, you can see how it looked while browsing through the different bars. Because our information
+            from Google was rather limited we decided on leveraging the information that we had, the best way we could.
+            At a glace you knew the pricing, if it's open or closed and how far away it was. If you clicked on "more"
+            you got more information shown in Figure 3 below.
           </p>
           <div class="center">
-            <img class="container_img" src="../Projects/Images/proto2.png">
+            <img class="container_img" src="../Projects/Images/proto2.png" style="width: 25%;">
             <p class="figure">Figure 3. More details about the place.</p>
           </div>
-          </p>
-        </div>
-        <div id="androidProject" class="hide">
-          <h1 class="title center">
-            Game development in Android Studio
-          </h1>
-          <div class="center">
-            <img class="container_img" src="../Projects/Images/test.jpg">
-          </div>
-          <p class="summary">
-            These projects come from a course that focused on teaching game development in Android Studio. Android
-            Studio is an integrated development environment made by Google to develop applications for the Android
-            operating system.
-          </p>
-          <h3 class="sub-title">About the project.</h3>
-          <p class="text">
-            During the course we made three individual projects, each integrating something new into to our use of
-            Android Studio. The first project was a "space-shooter", a sort of Flappy Bird clone with shooting, see
-            below in Figure 1.
-          </p>
-          <div class="center">
-            <img class="container_img" src="../Projects/Images/a1.png">
-            <p class="figure">Figure 1. Space Shooter in Android Studio.</p>
-          </div>
-          <p class="text">
-            By holding down to accelerate you also fly upwards. Due to it being a mobile game it had touch controls to
-            the left for acceleration and a button to the right for firing. The first project was more about learning
-            the ways of Android Studio and how it works.
 
-            The second project was to develop a platformer, each project had a list of features that you could choose
-            from to implement. You had to choose a certain number of them to pass the course.
-            The platformer i made had spikes you took damage from if you touched them, life points, score system and
-            sound effects.
-          </p>
-          <div class="center">
-            <img class="container_img" src="../Projects/Images/plat.png" style="width: 25%;">
-            <p class="figure">Figure 2. Platformer in Android Studio.</p>
-          </div>
-          <p class="text">
-            Third project was to implement Asteroids, a classic! Sadly I don't have any pictures of that project.
-          </p>
-          <h3 class="sub-title">Conclusion.</h3>
-          <p class="text">
-            Working with Android Studio and with native mobile applications in general, the environment and work
-            structure is quite different from what i was used to. Having to deal with window instances and different
-            ways to map input and controls was not something i was used to at this point. However, Android Studio
-            provides a fairly good interface for developing application even though it felt clumsy at times (especially
-            compared to Unity).
-          </p>
-        </div>
-        <div id="workshiftProject" class="hide">
-          <h1 class="readingTitle">
-            Prototype: Workshift
-          </h1>
-          <div class="center">
-            <img class="container_img" src="../Projects/Images/wsfront.png">
-          </div>
-          <p class="summary">
-            The focus of this course was to apply our business and engineering knowledge to develop an idea into a
-            technical system. The workflow covers the entire business development chain from idea to presentation of a
-            prototype and business plan using Business Model Canvas (BMC). The course also covered entrepreneurship and
-            other business related aspects and concepts.
-
-          </p>
           <h2 class="title">
-            About the project.
+            SmartTable.
           </h2>
           <p class="text">
-            The idea we (a group of 3) came up with was called “Workshift”, a service that was to quickly and smoothly
-            match a person’s competencies with the skills and needs of the employers.
-            <br><br>
-            The matching would take place in an application where people create profiles containing their skills and
-            previous experiences and where employers would go to find people perfect for their specific job. The main
-            purpose behind the idea was to ease the burden on people without jobs and to let them have a broad reach in
-            multiple areas of their field without having to actively look for them and for companies to have an easy
-            service to find the right person for the position. Think Tinder but for jobs.
-            <br><br>
-            One of the main selling points was that it was going to bundle everything that goes into recruiting in one,
-            even signing contracts.
-            <br><br>
-            As the purpose of the course was to practice assessing ideas over several iterations and evaluate the
-            business viability based on the BMC, the conclusion of the project was that it was too similar to very large
-            competitors (LinkedIn) and unless re-evaluated and niched to separate ourselves from them it would be hard
-            to realistically implement.
-            <br><br>
-            The prototype was made using a website called <a class="introlink" target="_blank" rel="noopener noreferrer"
-              href="https://www.framer.com/">Framer</a>. Framer allows for simultaneous editing on prototypes.
-            One of its main features is that it supports a component based work structure similar to React. Framer also
-            lets you export components you’ve made into React for further implementation (not something we used for this
-            project).
+            This is a project from “Innovative mobile services and systems” where the focus was about the concept <a
+              class="introlink" target="_blank" rel="noopener noreferrer"
+              href="https://en.wikipedia.org/wiki/Internet_of_things">"Internet of Things"</a>, similarly to the
+            previous project a lot of the focus was on developing an idea, a design and lastly a prototype. This time
+            however, there was a caveat that we had to use different sensors that a company had provided for us. These
+            sensors were hooked up to the internet and could be used for a variety of things. Temperature, movement, you
+            name it. They all had an API we could work towards and that's how we created SmartTable.
+          <div class="inline">
+            <img class="container_img" src="../Projects/Images/smart1.png" style="width: 25%; margin-right: 4px">
+            <img class="container_img" src="../Projects/Images/smart2.png" style="width: 25%; margin-right: 4px">
+            <img class="container_img" src="../Projects/Images/smart3.png" style="width: 25%; margin-right: 4px">
+            <img class="container_img" src="../Projects/Images/smart4.png" style="width: 25%;">
 
+          </div>
+          <p class="figure center">Figure 4. Prototype of SmartTable in React Native</p>
+          <p class="text">
+            The idea was to use sensors that could detect if anyone was present to create an application that could tell
+            you what tables are occupied at the Univeristy. After some interviews we created a prototype in React Native
+            that uses MazeMap to display the campus and tables. However the reliability of the sensors coupled with the
+            fact that we didn't actually get to place any sensors (because they were expensive), made it so that this
+            was as far as the prototype went, see Figure 4 for a collection of images of the prototype.
           </p>
+
         </div>
+
+
       </div>
       <div id="right"></div>
     </div>
@@ -354,25 +310,14 @@
           <li class="projectLi slideLeft">
             <a class="project inline">
               <i class="fa fa-briefcase"></i>
-              <h2 class="hover-underline-animation projectTitle" id="portfolio">ThreeJS portfolio</h2>
+              <h2 class="hover-underline-animation projectTitle" id="portfolio">Three.js portfolio</h2>
             </a>
           </li>
           <li class="projectLi slideLeft">
             <a class="project inline">
               <i class="fa fa-glass"></i>
-              <h2 class="hover-underline-animation projectTitle" id="party">Prototype: "Party-Pinglor"</h2>
-            </a>
-          </li>
-          <li class="projectLi slideLeft">
-            <a class="project inline">
-              <i class="fa fa-gamepad"></i>
-              <h2 class="hover-underline-animation projectTitle" id="android">Game development: Android Studio</h2>
-            </a>
-          </li>
-          <li class="projectLi slideLeft">
-            <a class="project inline">
-              <i class="fa fa-star"></i>
-              <h2 class="hover-underline-animation projectTitle" id="workshift">Workshift</h2>
+              <h2 class="hover-underline-animation projectTitle" id="party">Prototyping in React Native
+              </h2>
             </a>
           </li>
         </ul>
@@ -412,7 +357,7 @@
       </p>
 
     </div>
-    <a class="return-to-top"><i class="icon-chevron-up"></i></a>
+    <a class="return-to-top center"><i class="icon-chevron-up"></i></a>
   </div>
 
   <canvas id="three"></canvas>
