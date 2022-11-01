@@ -50,10 +50,10 @@ export class Display {
     LoadDisplayTextures() {
 
         this.textureLoader = new THREE.TextureLoader(loader);
-        this.defaultTexture = this.textureLoader.load('../Projects/Images/default.png');
-        this.partyTexture = this.textureLoader.load('../Projects/Images/party.png');
-        this.portfolioTexture = this.textureLoader.load('../Projects/Images/portfolio.png');
-        this.masterTexture = this.textureLoader.load('../Projects/Images/master.png');
+        this.defaultTexture = this.textureLoader.load('../images/default.png');
+        this.partyTexture = this.textureLoader.load('../images/party.png');
+        this.portfolioTexture = this.textureLoader.load('../images/portfolio.png');
+        this.masterTexture = this.textureLoader.load('../images/master.png');
 
     }
 
