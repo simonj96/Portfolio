@@ -1,3 +1,0 @@
-This portfolio is developed using HTML, CSS and Javascript. The 3D environment is made using Three, a 3D Javascript Library which uses WebGL to create animated 3D graphics.
-
-The aim of the portfolio is to give an example of my knowledge in interaction and design while also having somewhere to present my other previous work. 

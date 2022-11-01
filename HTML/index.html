@@ -63,16 +63,23 @@
   </div>
 
   <div class='container hide'>
+    <div id="banner1" class="banner hide">
+      <h1 class="mainTitle" style="color:#000000">Prototyping in React Native.</h1>
+      <img src="../Projects/Images/id.png" />
+    </div>
+    <div id="banner2" class="banner hide">
+      <h1 class="mainTitle" style="color:#000000">Master thesis.</h1>
+      <img src="../Projects/Images/mc.png" style="width: 14%" />
+    </div>
+    <div id="banner3" class="banner hide">
+      <h1 class="mainTitle" style="color:#000000;">Three.js Portfolio.</h1>
+      <img src="../Projects/Images/three.png" style="width: 14%" />
+    </div>
     <div class="container_content">
-      <div id="left"></div>
+
       <div class="container_content_inner">
         <div id="masterProject" class="hide">
-          <h1 class="title center">
-            Master thesis
-          </h1>
-          <div class="center">
-            <img class="container_img" src="../Projects/Images/test.jpg">
-          </div>
+
           <p class="summary">
             <a class="introlink" target="_blank" rel="noopener noreferrer" href="https://houseofhow.com/">House of
               How</a> is an authorized and leading third-party studio from Seattle, USA that develops microtransactions
@@ -119,12 +126,6 @@
           </p>
         </div>
         <div id="portfolioProject" class="hide">
-          <h1 class="title center">
-            Three.js portfolio
-          </h1>
-          <div class="center">
-            <img class="container_img" src="../Projects/Images/test.jpg">
-          </div>
           <p class="summary">
             This portfolio was developed using HTML, CSS and JavaScript. The 3D environment is made using <a
               class="introlink" target="_blank" rel="noopener noreferrer" href="https://threejs.org/">Three</a>, a 3D
@@ -140,7 +141,12 @@
             The goal was to create a “one-page” portfolio to present myself and put up my projects for display. Because
             I've already made a few websites in HTML I decided to make it more interesting by integrating Three.js into
             the project. I did this to challenge myself and to push the limits of my knowledge about interaction design.
-            <br><br>
+          </p>
+          <div class="center">
+            <img src="../Projects/Images/blender.png" style="width: 100%;">
+            <p class="figure">Figure 1. A screenshot of the blender project.</p>
+          </div>
+          <p class="text">
             The 3D environment is in the background while the HTML rests on top. As the user scrolls down the site
             revealing more information the 3D environment also pans out revealing even more of the scene.
 
@@ -174,7 +180,12 @@
             ease the burden on our systems while rendering 3D environments. This project only used shadow baking. The
             drawback of not having dynamic lights is that we can’t have things move that would need shadows as they are
             stuck on the textures, but in the case of non moving models this is an amazing option.
-            <br><br>
+          </p>
+          <div class="center">
+            <img src="../Projects/Images/alt.jpg" style="width: 100%;">
+            <p class="figure">Figure 2. An alternative take on the 3D environment.</p>
+          </div>
+          <p class="text">
             Another issue I encountered was that I first made a very detailed high fidelity scene in Blender without
             thinking about the model size after export. Complex high fidelity models don't really lag using baked
             shadows, however they do increase in size quite a bit, namely because of the textures. The first scene I
@@ -188,13 +199,6 @@
           </p>
         </div>
         <div id="partyProject" class="hide">
-          <div class="banner">
-            <img class="container_img" src="../Projects/Images/PrototypeBanner.png">
-          </div>
-          <h1 class="title center">
-            Prototyping in React Native.
-          </h1>
-
           <p class="summary">
             While learning about design during my time at university we had a few opportunities to lead
             projects of our own. Below is a write up on a couple of prototypes we made in React Native as final projects
@@ -276,7 +280,7 @@
 
 
       </div>
-      <div id="right"></div>
+
     </div>
   </div>
 

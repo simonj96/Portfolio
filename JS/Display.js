@@ -52,7 +52,6 @@ export class Display {
         this.textureLoader = new THREE.TextureLoader(loader);
         this.defaultTexture = this.textureLoader.load('../Projects/Images/default.png');
         this.partyTexture = this.textureLoader.load('../Projects/Images/party.png');
-        this.workshiftTexture = this.textureLoader.load('../Projects/Images/workshift.png');
         this.portfolioTexture = this.textureLoader.load('../Projects/Images/portfolio.png');
         this.masterTexture = this.textureLoader.load('../Projects/Images/master.png');
 
@@ -66,16 +65,10 @@ export class Display {
             case Display.TEXTURE.PARTY:
                 texture = this.partyTexture;
                 break;
-            case Display.TEXTURE.WORKSHIFT:
-                texture = this.workshiftTexture;
-                break;
             case Display.TEXTURE.PORT:
                 texture = this.portfolioTexture;
                 break;
             case Display.TEXTURE.MASTER:
-                texture = this.masterTexture;
-                break;
-            case Display.TEXTURE.ANDROID:
                 texture = this.masterTexture;
                 break;
             default:

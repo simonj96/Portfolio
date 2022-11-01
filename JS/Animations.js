@@ -24,6 +24,11 @@ class Animations {
         this.project = document.getElementsByClassName("container")[0];
         this.button = document.getElementsByClassName("btns")[0];
         this.projectlist = document.getElementsByClassName("projectsContainer")[0];
+
+        //Projectbanners
+        this.protoBanner = document.getElementById("banner1");
+        this.thesisBanner = document.getElementById("banner2");
+        this.portfolioBanner = document.getElementById("banner3");
     }
 
     OnLoaded() {
@@ -55,9 +60,38 @@ class Animations {
 
         this.currentProject = document.getElementById(string + "Project");
         this.currentProject.style.position = "relative";
+        this.ShowBanner();
         this.currentProject.classList.remove('hide');
         this.FadeIn(this.currentProject);
     }
+
+    ShowBanner() {
+        if (!this.currentProject) {
+            return;
+        }
+        switch (this.currentProject.id) {
+            case "masterProject":
+                this.thesisBanner.classList.remove('hide');
+                break;
+            case "portfolioProject":
+                this.portfolioBanner.classList.remove('hide');
+                break;
+            case "partyProject":
+                this.protoBanner.classList.remove('hide');
+                break;
+
+            default:
+
+                break;
+        }
+    }
+
+    HideBanners() {
+        this.thesisBanner.classList.add('hide');
+        this.portfolioBanner.classList.add('hide');
+        this.protoBanner.classList.add('hide');
+    }
+
 
     CloseProject() {
 
@@ -66,10 +100,12 @@ class Animations {
         setTimeout(() => {
             this.currentProject.classList.add('hide');
             this.project.classList.add('hide');
+            this.HideBanners();
             this.project.style.opacity = 0;
         }, 0);
 
         this.FadeIn(this.main);
+
         var p = $('#q').position();
         window.scrollTo({
             top: p.top - window.innerHeight / 2,
