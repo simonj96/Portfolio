@@ -1004,6 +1004,33 @@ h1.readingTitle {
     }
 }
 
+/* @Media for slightly smaller window */
+@media screen and (max-width : 510px) {
+    .sidenav {
+        min-width: 100%;
+    }
+}
+
+@media screen and (max-height : 700px) {
+    .Footer ul li a {
+        font-size: 27px;
+    }
+
+}
+
+@media screen and (max-height : 660px) {
+    .Footer ul li a {
+        font-size: 27px;
+        margin-bottom: 15px;
+    }
+
+    .Menu a {
+
+        margin-right: 15px;
+        font-size: 23px;
+    }
+}
+
 /* @Media for mobile */
 @media screen and (max-device-width : 420px) {
 
